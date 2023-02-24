@@ -23,6 +23,25 @@
                 <div class="employees__single--info"></div>
             </div>
         </div>
+
+        <!-- Add Employee Code - Start -->
+        <div class="addEmployee">
+            <form class="addEmployee__create">
+                Add a new Employee
+                <div>
+                    <input type="text" name="firstName" placeholder="First Name" required />
+                    <input type="text" name="lastName" placeholder="Last Name" required />
+                </div>
+                <input type="text" name="imageUrl" placeholder="Image URL (Optional)" />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="number" name="contactNumber" placeholder="Contact" required />
+                <input type="number" name="salary" placeholder="Salary" required />
+                <input type="text" name="address" placeholder="Address" required>
+                <input type="date" name="dob" placeholder="Date of Birth" required class="addEmployee__create--dob" required />
+                <input type="submit" class="addEmployee__create--submit" value="Submit">
+            </form>
+        </div>
+        <!-- Add Employee Code - END -->
     </div>
     <script src="./src/script.js"></script>
 </body>
