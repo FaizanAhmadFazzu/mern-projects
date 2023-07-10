@@ -25,9 +25,9 @@ const Header = () => {
             </Form>
           </Nav>
           <Nav>
-            <Nav.Link href="#action1">My Notes</Nav.Link>
-            <NavDropdown id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">My Profile</NavDropdown.Item>
+            <Nav.Link href="/mynotes">My Notes</Nav.Link>
+            <NavDropdown title="Faizan Khan" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item>
                 Logout
