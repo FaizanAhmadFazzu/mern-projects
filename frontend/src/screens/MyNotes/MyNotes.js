@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Accordion, Badge, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import MainScreen from '../../components/MainScreen';
-import notes from "../../notes";
+import axios from "axios";
 
 const MyNotes = () => {
+    const [notes, setNotes] = useState([]);
+    const fetchNotes = async () => {
+        const { data } = await axios("/api/notes")
+        setNotes(data);
+    }
+
+    useEffect(() => {
+        fetchNotes();
+    }, [])
+
     return (
         <MainScreen title="Welcome back Faizan Ahmad Khan">
             <Link to="/createnote">
@@ -13,7 +23,7 @@ const MyNotes = () => {
                 </Button>
             </Link>
             <Accordion defaultActiveKey={0} flush>
-                {notes && notes.map(note => (
+                {notes && notes.length > 0 && notes.map(note => (
                     <Accordion.Item eventKey={note.id}>
                         <Card style={{ margin: 10 }} key={note.id}>
                             <Card.Header style={{ display: "flex" }}>
