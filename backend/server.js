@@ -2,8 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const notes = require("./data/notes");
 const connectDB = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
 
-const app = express();
+const app = express(); // main thing
 dotenv.config();
 
 connectDB();
@@ -20,6 +21,11 @@ app.get("/api/notes/:id", (req, res) => {
     const note = notes.find(n => n.id == req.params.id);
     res.send(note);
 })
+
+app.use(express.json()); // to accept json data
+
+
+app.use("/api/users", userRoutes)
 
 const PORT = process.env.PORT || 5000
 
